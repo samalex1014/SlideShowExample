@@ -15,6 +15,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     var grids = [Grid]()
     var image: UIImage!
+    var images = [SCNNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,48 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         paintingNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
         
         sceneView.scene.rootNode.addChildNode(paintingNode)
+        images.append(paintingNode)
         grid.removeFromParentNode()
+    }
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        for image in images {
+            guard let picMaterial = image.geometry?.materials.first else { break }
+            
+            let currImage = picMaterial.diffuse.contents as! UIImage
+            var nextImage: UIImage
+            
+            if currImage == UIImage(named: "image1") {
+                nextImage = UIImage(named: "image2")!
+            } else if currImage == UIImage(named: "image2") {
+                nextImage = UIImage(named: "image3")!
+            } else {
+                nextImage = UIImage(named: "image1")!
+            }
+            
+            picMaterial.diffuse.contents = nextImage
+            
+            image.geometry?.materials[0] = picMaterial
+        }
+    }
+    @IBAction func previousButtonPressed(_ sender: Any) {
+        for image in images {
+            guard let picMaterial = image.geometry?.materials.first else { break }
+            
+            let currImage = picMaterial.diffuse.contents as! UIImage
+            var nextImage: UIImage
+            
+            if currImage == UIImage(named: "image1") {
+                nextImage = UIImage(named: "image3")!
+            } else if currImage == UIImage(named: "image2") {
+                nextImage = UIImage(named: "image1")!
+            } else {
+                nextImage = UIImage(named: "image2")!
+            }
+            
+            picMaterial.diffuse.contents = nextImage
+            
+            image.geometry?.materials[0] = picMaterial
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

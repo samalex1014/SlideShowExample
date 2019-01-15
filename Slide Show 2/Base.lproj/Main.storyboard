@@ -84,15 +84,50 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                             </arscnView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQq-Rb-dUu">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bKF-Zz-qs0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwL-sm-E7s">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="100"/>
+                                                <state key="normal" title="Previous"/>
+                                                <connections>
+                                                    <action selector="previousButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="kAR-OF-dh0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJ4-De-4vr">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="100"/>
+                                                <state key="normal" title="Next"/>
+                                                <connections>
+                                                    <action selector="nextButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="e9t-XG-xZw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="bKF-Zz-qs0" firstAttribute="top" secondItem="tQq-Rb-dUu" secondAttribute="top" id="23v-Kj-35r"/>
+                                    <constraint firstAttribute="bottom" secondItem="bKF-Zz-qs0" secondAttribute="bottom" id="Ctk-3y-lHB"/>
+                                    <constraint firstItem="bKF-Zz-qs0" firstAttribute="leading" secondItem="tQq-Rb-dUu" secondAttribute="leading" id="QXn-wU-CGS"/>
+                                    <constraint firstAttribute="trailing" secondItem="bKF-Zz-qs0" secondAttribute="trailing" id="RgK-AY-MrU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tQq-Rb-dUu" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="3yv-Nc-GBg"/>
+                            <constraint firstItem="tQq-Rb-dUu" firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="8iT-u6-9XR"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="height" secondItem="U0K-SW-4ec" secondAttribute="height" multiplier="0.85" id="NgJ-W7-KlR"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="tQq-Rb-dUu" secondAttribute="trailing" id="QCM-Ne-xKE"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="a9M-Z9-aco"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="tQq-Rb-dUu" secondAttribute="bottom" id="rf6-LS-AFH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
